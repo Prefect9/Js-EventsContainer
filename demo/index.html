@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Js EventsContainer</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <div class="page">
+        <div class="btn" id="btn">CLICK!</div>
+    </div>
+    <script src="../events-container.js"></script>
+    <script>
+        var click_events = new EventsContainer()
+            .add(function (arg) {
+                alert("Handler #1, seed: "+arg)
+            })
+            .add(function (arg) {
+                alert("Handler #2, seed: "+arg)
+            })
+        document.getElementById("btn").addEventListener("click", function (e) {
+            e.preventDefault()
+            click_events.trigger(Math.random())
+        })
+    </script>
+</body>
+</html>
